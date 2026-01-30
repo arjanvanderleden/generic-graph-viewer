@@ -72,6 +72,9 @@ export function useForceGraph(
   const onStabilizedRef = useRef(onStabilized);
   const isRadialRef = useRef(radialLayout);
 
+  // Track which graphData the current nodes/links belong to
+  const currentGraphRef = useRef<GraphData | null>(null);
+
   // State for triggering re-renders
   const [isStable, setIsStable] = useState(false);
   const [, forceRender] = useReducer((x) => x + 1, 0);
@@ -100,15 +103,19 @@ export function useForceGraph(
       simulationRef.current = null;
     }
 
+    // Clear old data immediately to prevent stale renders
+    nodesRef.current = [];
+    linksRef.current = [];
+    currentGraphRef.current = graphData;
+
     if (!graphData || graphData.nodes.length === 0) {
-      nodesRef.current = [];
-      linksRef.current = [];
       setIsStable(true);
       forceRender();
       return;
     }
 
     setIsStable(false);
+    forceRender(); // Render empty state before building new graph
 
     // Create D3 nodes with deterministic initial positions based on node ID
     const d3Nodes: D3Node[] = graphData.nodes.map((node) => {
@@ -240,9 +247,12 @@ export function useForceGraph(
     setIsStable(false);
   }, [forceParams]);
 
+  // Only return data if it belongs to the current graph (prevents stale renders)
+  const isCurrentGraph = currentGraphRef.current === graphData;
+
   return {
-    nodes: nodesRef.current,
-    links: linksRef.current,
+    nodes: isCurrentGraph ? nodesRef.current : [],
+    links: isCurrentGraph ? linksRef.current : [],
     isStable
   };
 }

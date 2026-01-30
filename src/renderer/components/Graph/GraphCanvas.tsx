@@ -498,10 +498,10 @@ export function GraphCanvas() {
         <g ref={gRef}>
           {/* Edges */}
           <g className="graph-canvas__edges">
-            {links.map((link) => {
+            {links.map((link, index) => {
               const sourceId = typeof link.source === 'string' ? link.source : link.source.id;
               const targetId = typeof link.target === 'string' ? link.target : link.target.id;
-              const linkKey = `${sourceId}->${targetId}`;
+              const linkKey = `${sourceId}->${targetId}-${index}`;
 
               const coords = getLinkCoords(link);
               if (!coords) return null;
