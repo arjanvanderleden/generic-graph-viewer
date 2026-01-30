@@ -1,0 +1,110 @@
+/* GraphStats styles - scoped to .graph-stats */
+
+.graph-stats {
+  > .graph-stats__empty {
+    color: var(--text-muted);
+    font-style: italic;
+    margin: 0;
+  }
+
+  > .graph-stats__file {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
+
+    > .graph-stats__value {
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: 500;
+    }
+  }
+
+  > .graph-stats__row {
+    display: flex;
+    justify-content: space-between;
+    padding: var(--spacing-xs) 0;
+  }
+
+  > .graph-stats__invalid {
+    margin-top: var(--spacing-sm);
+  }
+}
+
+.graph-stats__label {
+  color: var(--text-secondary);
+}
+
+.graph-stats__value {
+  font-weight: 500;
+}
+
+.graph-stats__value--error {
+  color: var(--error-color);
+}
+
+/* Collapsible invalid edges section */
+.graph-stats__toggle {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-xs) 0;
+  border: none;
+  background: transparent;
+  color: var(--error-color);
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+  > .graph-stats__toggle-icon {
+    font-size: 10px;
+  }
+}
+
+.graph-stats__invalid-list {
+  list-style: none;
+  margin: var(--spacing-xs) 0 0 0;
+  padding: var(--spacing-sm);
+  background-color: rgba(217, 74, 74, 0.1);
+  border: 1px solid var(--error-color);
+  border-radius: var(--border-radius);
+  font-size: var(--font-size-sm);
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.graph-stats__invalid-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: 2px 0;
+  min-width: 0;
+
+  > .graph-stats__edge-id {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+
+  > .graph-stats__edge-arrow {
+    flex-shrink: 0;
+    color: var(--text-muted);
+  }
+}
+
+.graph-stats__invalid-more {
+  padding-top: var(--spacing-xs);
+  color: var(--text-muted);
+  font-style: italic;
+}

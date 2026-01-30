@@ -1,0 +1,37 @@
+{
+  "nodes": [
+    { "id": "core", "name": "Core System", "level": 0, "category": "core" },
+
+    { "id": "auth", "name": "Authentication", "level": 1, "category": "service" },
+    { "id": "api", "name": "API Gateway", "level": 1, "category": "service" },
+    { "id": "db", "name": "Database", "level": 1, "category": "service" },
+
+    { "id": "users", "name": "User Service", "level": 2, "category": "module" },
+    { "id": "orders", "name": "Order Service", "level": 2, "category": "module" },
+    { "id": "products", "name": "Product Service", "level": 2, "category": "module" },
+    { "id": "cache", "name": "Cache Layer", "level": 2, "category": "module" },
+
+    { "id": "web", "name": "Web Client", "category": "client" },
+    { "id": "mobile", "name": "Mobile App", "category": "client" },
+    { "id": "admin", "name": "Admin Panel", "category": "client" }
+  ],
+  "edges": [
+    { "sourceId": "core", "targetId": "auth" },
+    { "sourceId": "core", "targetId": "api" },
+    { "sourceId": "core", "targetId": "db" },
+
+    { "sourceId": "auth", "targetId": "users" },
+    { "sourceId": "api", "targetId": "users" },
+    { "sourceId": "api", "targetId": "orders" },
+    { "sourceId": "api", "targetId": "products" },
+    { "sourceId": "db", "targetId": "cache" },
+    { "sourceId": "db", "targetId": "users" },
+    { "sourceId": "db", "targetId": "orders" },
+
+    { "sourceId": "users", "targetId": "web" },
+    { "sourceId": "users", "targetId": "mobile" },
+    { "sourceId": "orders", "targetId": "web" },
+    { "sourceId": "products", "targetId": "web" },
+    { "sourceId": "users", "targetId": "admin" }
+  ]
+}

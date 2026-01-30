@@ -1,0 +1,31 @@
+{
+  "nodes": [
+    {"id": "srv-1", "name": "Web Server 1", "category": "server"},
+    {"id": "srv-2", "name": "Web Server 2", "category": "server"},
+    {"id": "srv-3", "name": "API Server", "category": "server"},
+    {"id": "db-1", "name": "PostgreSQL Primary", "category": "database"},
+    {"id": "db-2", "name": "PostgreSQL Replica", "category": "database"},
+    {"id": "cache-1", "name": "Redis Cache", "category": "cache"},
+    {"id": "mq-1", "name": "RabbitMQ", "category": "messaging"},
+    {"id": "lb-1", "name": "Load Balancer", "category": "infrastructure"},
+    {"id": "mon-1", "name": "Prometheus", "category": "monitoring"},
+    {"id": "log-1", "name": "Elasticsearch", "category": "logging"},
+    {"id": "misc-1", "name": "Misc Service"}
+  ],
+  "edges": [
+    {"sourceId": "lb-1", "targetId": "srv-1"},
+    {"sourceId": "lb-1", "targetId": "srv-2"},
+    {"sourceId": "srv-1", "targetId": "db-1"},
+    {"sourceId": "srv-2", "targetId": "db-1"},
+    {"sourceId": "srv-3", "targetId": "db-1"},
+    {"sourceId": "db-1", "targetId": "db-2"},
+    {"sourceId": "srv-1", "targetId": "cache-1"},
+    {"sourceId": "srv-2", "targetId": "cache-1"},
+    {"sourceId": "srv-3", "targetId": "mq-1"},
+    {"sourceId": "mon-1", "targetId": "srv-1"},
+    {"sourceId": "mon-1", "targetId": "srv-2"},
+    {"sourceId": "mon-1", "targetId": "db-1"},
+    {"sourceId": "srv-1", "targetId": "log-1"},
+    {"sourceId": "srv-2", "targetId": "log-1"}
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    {"id": "1", "name": "Only Node"},
+    {"id": "2", "name": "Second Node"}
+  ],
+  "edges": [
+    {"sourceId": "1", "targetId": "2"},
+    {"sourceId": "1", "targetId": "missing"},
+    {"sourceId": "nonexistent", "targetId": "2"}
+  ]
+}

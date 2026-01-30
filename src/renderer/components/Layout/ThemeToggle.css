@@ -1,0 +1,26 @@
+/* ThemeToggle styles - scoped to .theme-toggle */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  background: var(--background);
+  cursor: pointer;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+  -webkit-app-region: no-drag;
+
+  &:hover {
+    background: var(--background-secondary);
+    border-color: var(--text-muted);
+  }
+
+  > .theme-toggle__icon {
+    font-size: 14px;
+    line-height: 1;
+  }
+}

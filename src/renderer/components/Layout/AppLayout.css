@@ -1,0 +1,26 @@
+/* AppLayout styles - scoped to .app-layout */
+
+.app-layout {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+
+  > .app-layout__graph {
+    flex: 1;
+    min-width: 0;
+    position: relative;
+    background-color: var(--background);
+    overflow: hidden;
+  }
+
+  > .app-layout__sidebar {
+    width: var(--sidebar-width);
+    flex-shrink: 0;
+    background-color: var(--background-secondary);
+    border-left: 1px solid var(--border-color);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+}

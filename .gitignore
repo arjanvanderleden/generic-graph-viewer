@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+.claude
+dist
+dist-electron
+release
+research
+build
+PRPs

@@ -1,0 +1,111 @@
+/* CategoryLegend styles - scoped to .category-legend */
+
+.category-legend {
+  > .category-legend__header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: var(--spacing-xs);
+
+    > .category-legend__toggle-all {
+      padding: 2px 8px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--border-radius);
+      background: transparent;
+      font-size: 11px;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: background-color 0.15s ease, border-color 0.15s ease;
+
+      &:hover {
+        background: var(--background);
+        border-color: var(--text-muted);
+      }
+    }
+  }
+
+  > .category-legend__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+.category-legend__item {
+  > .category-legend__row {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    border-radius: var(--border-radius);
+
+    &:hover {
+      background-color: var(--background);
+    }
+
+    &.category-legend__row--hidden {
+      opacity: 0.5;
+    }
+
+    > .category-legend__visibility {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      cursor: pointer;
+      border-radius: var(--border-radius);
+      flex-shrink: 0;
+
+      &:hover {
+        color: var(--text-primary);
+        background-color: var(--background-secondary);
+      }
+    }
+
+    > .category-legend__button {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-sm);
+      flex: 1;
+      padding: var(--spacing-xs) var(--spacing-sm);
+      padding-left: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+
+      > .category-legend__color {
+        width: 12px;
+        height: 12px;
+        border-radius: 2px;
+        flex-shrink: 0;
+      }
+
+      > .category-legend__name {
+        flex: 1;
+        font-size: var(--font-size-sm);
+        color: var(--text-primary);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      > .category-legend__name--muted {
+        color: var(--text-muted);
+        font-style: italic;
+      }
+
+      > .category-legend__count {
+        font-size: var(--font-size-sm);
+        color: var(--text-muted);
+        flex-shrink: 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+/* Global CSS - Resets and CSS Variables Only */
+
+:root {
+  /* Light mode colors (default) */
+  --background: #fafafa;
+  --background-secondary: #ffffff;
+  --text-primary: #333333;
+  --text-secondary: #666666;
+  --text-muted: #999999;
+  --border-color: #e0e0e0;
+
+  /* Graph colors */
+  --node-color: #4A90D9;
+  --node-hover: #5BA0E9;
+  --edge-color: #888888;
+  --edge-selected: #000000;
+  --node-selected: #000000;
+
+  /* Node label */
+  --node-label-bg: rgba(255, 255, 255, 0.9);
+  --node-label-border: #e0e0e0;
+  --node-label-text: #333333;
+
+  /* Status colors */
+  --error-color: #D94A4A;
+  --warning-color: #D9A54A;
+  --success-color: #4AD94A;
+
+  /* Layout */
+  --sidebar-width: 300px;
+  --header-height: 40px;
+
+  /* Typography */
+  --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  --font-mono: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-lg: 16px;
+
+  /* Spacing */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* Borders */
+  --border-radius: 4px;
+  --border-radius-lg: 8px;
+}
+
+/* Dark mode */
+[data-theme="dark"] {
+  --background: #1a1a1a;
+  --background-secondary: #242424;
+  --text-primary: #e8e8e8;
+  --text-secondary: #a0a0a0;
+  --text-muted: #707070;
+  --border-color: #3a3a3a;
+
+  /* Graph colors - edges and borders */
+  --edge-color: #b0b0b0;
+  --edge-selected: #FFFF00;
+  --node-selected: #FFFF00;
+
+  /* Node label - light background with dark text for readability */
+  --node-label-bg: rgba(255, 255, 255, 0.9);
+  --node-label-border: #555555;
+  --node-label-text: #333333;
+
+  /* Status colors adjusted for dark */
+  --error-color: #E57373;
+}
+
+/* CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  background-color: var(--background);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Remove default focus outline and add custom */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--node-color);
+  outline-offset: 2px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 5px;
+  border: 2px solid var(--background);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
